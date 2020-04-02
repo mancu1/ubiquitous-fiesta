@@ -1,5 +1,6 @@
 <template>
-  <div class="home">
+  <div class="home" >
+    <h2>qveen69</h2>
     <ImgSlider />
     <Comments />
   </div>
