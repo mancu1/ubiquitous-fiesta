@@ -1,8 +1,18 @@
 <template>
   <div>
-    <input type="text" v-model="changeComments" v-on:keyup.enter="addCom()" />
+    <v-col sm="3">
+      <v-text-field
+        label="Solo"
+        single-line
+        solo
+        v-model="changeComments"
+        v-on:keyup.enter="addCom()"
+        class="lox"
+      ></v-text-field>
+    </v-col>
+
     <ul>
-      <li v-for="task in comments" :key="task">
+      <li v-for="(task, ind) in comments" :key="ind">
         {{ task.nameComments }}
       </li>
     </ul>
@@ -17,10 +27,7 @@ export default {
       changeComments: "",
       comments: [
         {
-          nameComments: "ОФОФООФОФОФО"
-        },
-        {
-          nameComments: "ЭТО просто нечто!!БОжесственный проект!"
+          nameComments: "AYE"
         }
       ]
     };
@@ -36,4 +43,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss"></style>

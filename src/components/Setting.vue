@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="toggle">togle dark mode</button>
+    <v-btn @click="toggle">togle dark mode</v-btn>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   methods: {
     toggle() {
       this.color = !this.color;
-      document.body.className = this.color ? "black" : "green";
+      document.body.className = this.color ? "black" : "white";
     }
   }
 };

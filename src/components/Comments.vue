@@ -13,4 +13,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss">
+h1,
+p {
+  text-align: center;
+}
+</style>
