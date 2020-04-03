@@ -1,5 +1,6 @@
 <template>
   <div id="nav">
+    <v-avatar> </v-avatar>
     <router-link to="/">главная</router-link> |
     <router-link to="/Setting">настройки</router-link>|
     <router-link to="/Reviews">отзв</router-link>|

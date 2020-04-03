@@ -1,7 +1,6 @@
 <template>
-  <div class="container">
-    <input type="text" v-model="changeComments" />
-    <button @click="addCommetn()">добавить комментарий</button>
+  <div>
+    <input type="text" v-model="changeComments" v-on:keyup.enter="addCom()" />
     <ul>
       <li v-for="task in comments" :key="task">
         {{ task.nameComments }}
@@ -16,13 +15,18 @@ export default {
   data() {
     return {
       changeComments: "",
-      comments: {
-        nameComments: "fdsfdsfdsfd"
-      }
+      comments: [
+        {
+          nameComments: "ОФОФООФОФОФО"
+        },
+        {
+          nameComments: "ЭТО просто нечто!!БОжесственный проект!"
+        }
+      ]
     };
   },
   methods: {
-    addCommetn: function() {
+    addCom: function() {
       this.comments.push({
         nameComments: this.changeComments
       });
