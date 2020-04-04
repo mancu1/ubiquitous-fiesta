@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar dark max-height="100" flat>
+  <v-toolbar dark max-height="100" flat bottom>
     <v-toolbar-title>Лучший проект</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items>
@@ -32,6 +32,6 @@ export default {
   text-decoration: none;
   color: white;
   margin-right: 30px;
-  margin-top: 13px;
+  margin-top: 15px;
 }
 </style>

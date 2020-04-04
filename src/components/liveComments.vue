@@ -14,9 +14,15 @@
     </v-row>
 
     <ul>
-      <li v-for="(task, ind) in comments" :key="ind" link x-large>
-        <v-chip> {{ task.nameComments }}</v-chip>
-      </li>
+      <v-card outlined hover>
+        <v-card-titel>ваши коментарии </v-card-titel>
+
+        <v-card-text v-for="(task, ind) in comments" :key="ind" link x-large>
+          <li>
+            <v-card-subtitle>{{ task.nameComments }}</v-card-subtitle>
+          </li>
+        </v-card-text>
+      </v-card>
     </ul>
   </div>
 </template>
@@ -48,5 +54,7 @@ export default {
 <style lang="scss">
 li {
   margin-top: 10px;
+  list-style: none;
+  text-align: start;
 }
 </style>
