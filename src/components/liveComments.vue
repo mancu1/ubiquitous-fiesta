@@ -1,19 +1,21 @@
 <template>
   <div>
-    <v-col sm="3">
-      <v-text-field
-        label="Solo"
-        single-line
-        solo
-        v-model="changeComments"
-        v-on:keyup.enter="addCom()"
-        class="lox"
-      ></v-text-field>
-    </v-col>
+    <v-row class="justify-center">
+      <v-col sm="3">
+        <v-text-field
+          label="ваш комментарий"
+          single-line
+          solo
+          v-model="changeComments"
+          v-on:keyup.enter="addCom()"
+        >
+        </v-text-field>
+      </v-col>
+    </v-row>
 
     <ul>
-      <li v-for="(task, ind) in comments" :key="ind">
-        {{ task.nameComments }}
+      <li v-for="(task, ind) in comments" :key="ind" link x-large>
+        <v-chip> {{ task.nameComments }}</v-chip>
       </li>
     </ul>
   </div>
@@ -43,4 +45,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+li {
+  margin-top: 10px;
+}
+</style>

@@ -1,6 +1,7 @@
 <template>
-  <v-toolbar app dark max-height="100" flat>
-    <v-toolbar-title><v-btn>Лучший проект</v-btn> </v-toolbar-title>
+  <v-toolbar dark max-height="100" flat>
+    <v-toolbar-title>Лучший проект</v-toolbar-title>
+    <v-spacer></v-spacer>
     <v-toolbar-items>
       <router-link to="/" class="btn">
         <v-btn>главная</v-btn>
@@ -19,7 +20,10 @@
 
 <script>
 export default {
-  name: "header"
+  name: "header",
+  created() {
+    document.body.style.textAlign = "center";
+  }
 };
 </script>
 

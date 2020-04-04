@@ -14,6 +14,11 @@ export default {
     toggle() {
       this.color = !this.color;
       document.body.className = this.color ? "black" : "white";
+      if (this.color) {
+        document.body.style.color = "white";
+      } else {
+        document.body.style.color = "black";
+      }
     }
   }
 };
