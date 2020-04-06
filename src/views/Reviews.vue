@@ -15,8 +15,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-div {
-  text-align: center;
-}
-</style>
+<style scoped></style>
