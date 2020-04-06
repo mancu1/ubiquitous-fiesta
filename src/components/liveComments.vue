@@ -29,10 +29,10 @@
       hover
     >
       <h2>
-        {{ comment.user }}
+        {{ comment.name }}
       </h2>
       <v-card-text x-large>
-        {{ comment.text }}
+        {{ comment.body }}
       </v-card-text>
     </v-card>
   </div>
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     addCom() {
-      let comment = { user: this.changeUserName, text: this.changeComments };
+      let comment = { name: this.changeUserName, body: this.changeComments };
       this.$store.dispatch("CREATE_COMMENT", comment);
     }
   }
