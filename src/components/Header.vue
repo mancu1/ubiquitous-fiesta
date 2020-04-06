@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "header",
+  name: "Header",
   created() {
     document.body.style.textAlign = "center";
   }

@@ -6,22 +6,33 @@
           label="ваш комментарий"
           single-line
           solo
-          v-model="changeComments"
-          v-on:keyup.enter="addCom()"
+          v-model.lazy="changeComments"
         >
         </v-text-field>
+        <v-text-field
+          label="ваше имя"
+          single-line
+          solo
+          v-model="changeUserName"
+        >
+        </v-text-field>
+        <v-btn @click="addCom">добавить комментраий </v-btn>
       </v-col>
     </v-row>
     <h2>Коментарии</h2>
+
     <v-card
-      class="ma-2"
-      v-for="(task, ind) in comments"
+      class="mt-2"
+      v-for="(comment, ind) in Comments"
       :key="ind"
       outlined
       hover
     >
+      <h2>
+        {{ comment.user }}
+      </h2>
       <v-card-text x-large>
-        {{ task }}
+        {{ comment.text }}
       </v-card-text>
     </v-card>
   </div>
@@ -35,11 +46,19 @@ export default {
       get() {
         return this.$store.getters.getCurrentComment;
       },
-      set(newComment) {
-        this.$store.commit("SET_CURRENT_COMMENT", newComment);
+      set(Comment) {
+        this.$store.commit("SET_CURRENT_COMMENT", Comment);
       }
     },
-    comments: {
+    changeUserName: {
+      get() {
+        return this.$store.getters.getCurrentUser;
+      },
+      set(User) {
+        this.$store.commit("SET_CURRENT_USER", User);
+      }
+    },
+    Comments: {
       get() {
         return this.$store.getters.getComments;
       }
@@ -47,16 +66,11 @@ export default {
   },
   methods: {
     addCom() {
-      this.$store.dispatch("CREATE_COMMENT", this.changeComments);
+      let comment = { user: this.changeUserName, text: this.changeComments };
+      this.$store.dispatch("CREATE_COMMENT", comment);
     }
   }
 };
 </script>
 
-<style lang="scss">
-li {
-  margin-top: 10px;
-  list-style: none;
-  text-align: start;
-}
-</style>
+<style scoped></style>
