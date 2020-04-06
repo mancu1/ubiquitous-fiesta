@@ -12,40 +12,42 @@
         </v-text-field>
       </v-col>
     </v-row>
-
-    <ul>
-      <v-card outlined hover>
-        <v-card-titel>ваши коментарии </v-card-titel>
-
-        <v-card-text v-for="(task, ind) in comments" :key="ind" link x-large>
-          <li>
-            <v-card-subtitle>{{ task.nameComments }}</v-card-subtitle>
-          </li>
-        </v-card-text>
-      </v-card>
-    </ul>
+    <h2>Коментарии</h2>
+    <v-card
+      class="ma-2"
+      v-for="(task, ind) in comments"
+      :key="ind"
+      outlined
+      hover
+    >
+      <v-card-text x-large>
+        {{ task }}
+      </v-card-text>
+    </v-card>
   </div>
 </template>
 
 <script>
 export default {
   name: "liveComments",
-  data() {
-    return {
-      changeComments: "",
-      comments: [
-        {
-          nameComments: "AYE"
-        }
-      ]
-    };
+  computed: {
+    changeComments: {
+      get() {
+        return this.$store.getters.getCurrentComment;
+      },
+      set(newComment) {
+        this.$store.commit("SET_CURRENT_COMMENT", newComment);
+      }
+    },
+    comments: {
+      get() {
+        return this.$store.getters.getComments;
+      }
+    }
   },
   methods: {
-    addCom: function() {
-      this.comments.push({
-        nameComments: this.changeComments
-      });
-      this.changeComments = "";
+    addCom() {
+      this.$store.dispatch("CREATE_COMMENT", this.changeComments);
     }
   }
 };
